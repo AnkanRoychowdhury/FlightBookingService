@@ -14,7 +14,7 @@ const createChannel = async () => {
 
 const subscribeMessage = async (channel, service, bindingKey) => {
     try {
-        const applicationQueue = await channel.assertQueue('QUEUE_NAME');
+        const applicationQueue = await channel.assertQueue('REMINDER_QUEUE');
         channel.bindQueue(applicationQueue.queue, EXCHANGE_NAME, bindingKey);
         channel.consume(applicationQueue.queue, (msg) => {
             console.log('Received Data');
@@ -28,7 +28,7 @@ const subscribeMessage = async (channel, service, bindingKey) => {
 
 const publishMessage = async (channel, bindingKey, message) => {
     try {
-        await channel.assertQueue('QUEUE_NAME');
+        await channel.assertQueue('REMINDER_QUEUE');
         await channel.publish(EXCHANGE_NAME, bindingKey, Buffer.from(message));
     } catch (error) {
         throw error;
