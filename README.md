@@ -13,7 +13,7 @@ This is the backend system for an airline company that supports various features
 
 ## Airline System Design
 
-![System Design](AirlineSystem.png)
+![System Design](https://twitterimagesbucketankan.s3.ap-south-1.amazonaws.com/AirlineSystem.png)
 
 
 ## Features
